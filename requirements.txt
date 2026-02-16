@@ -1,0 +1,15 @@
+fastapi
+uvicorn
+numpy
+scikit-learn
+xgboost
+nltk==3.7
+torch --index-url https://download.pytorch.org/whl/cpu
+textstat
+transformers
+pymongo[srv]
+python-jose[cryptography]
+python-multipart
+python-docx
+pypdf
+python-pptx

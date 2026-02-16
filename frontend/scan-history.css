@@ -1,0 +1,33 @@
+﻿.history-page-wrap {
+    min-height: 62vh;
+}
+
+.history-page-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 8px;
+    flex-wrap: wrap;
+}
+
+.history-page-head h1 {
+    margin: 0;
+}
+
+.back-link {
+    text-decoration: none;
+    color: #0f4fd3;
+    font-weight: 600;
+}
+
+.history-page-sub {
+    margin: 0 0 20px;
+    color: #334155;
+}
+
+@media (max-width: 768px) {
+    .history-page-head {
+        align-items: flex-start;
+    }
+}

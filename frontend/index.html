@@ -1,0 +1,368 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI Text Detector</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="./landing.css">
+</head>
+<body>
+<header class="site-header" id="top">
+    <nav class="navbar" aria-label="Main Navigation">
+        <a href="#home" class="logo">AI Text Detector</a>
+
+        <button id="menuBtn" class="menu-btn" aria-label="Toggle menu" aria-expanded="false" aria-controls="navLinks">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+
+        <div id="navLinks" class="nav-links-wrap">
+            <a href="#home">Home</a>
+            <a href="#features">Features</a>
+            <a href="#how-it-works">How It Works</a>
+            <a href="#testimonials">Testimonials</a>
+            <a href="#stats">Stats</a>
+            <a href="login.html" class="nav-active">Login</a>
+        
+        </div>
+    </nav>
+</header>
+
+<main>
+    <section class="saas-hero" id="home" aria-labelledby="hero-title">
+        <div class="saas-hero__copy">
+            <p class="saas-hero__kicker">Trusted AI Writing Verification Platform</p>
+
+            <h1 id="hero-title">
+                Detect AI vs Human writing
+                <span>with confidence, not guesswork.</span>
+            </h1>
+
+            <p class="saas-hero__sub">
+                Built for educators, reviewers, and compliance teams. Scan fast, inspect highlighted segments,
+                and export decision-ready reports from one clean workflow.
+            </p>
+
+            <ul class="saas-hero__benefits" aria-label="Platform benefits">
+                <li>Fast scan turnaround with clear confidence scores</li>
+                <li>Sentence-level highlights for focused manual review</li>
+                <li>Exportable reports for audit and policy workflows</li>
+            </ul>
+
+            <form class="saas-hero__capture" action="#" method="post" novalidate>
+                <label for="heroEmail" class="sr-only">Work email</label>
+                <input
+                    id="heroEmail"
+                    name="email"
+                    type="email"
+                    placeholder="Enter your work email"
+                    autocomplete="email"
+                    aria-describedby="heroPrivacy"
+                >
+                <div class="saas-hero__actions">
+                    <button type="button" class="btn hero-btn--primary" onclick="openLogin()">Start Free Scan</button>
+                    <a href="#how-it-works" class="btn hero-btn--secondary">See Demo</a>
+                </div>
+                <p id="heroPrivacy" class="saas-hero__privacy">No spam. Work email recommended.</p>
+            </form>
+
+            <div class="saas-hero__trust" aria-label="Trust and social proof">
+                <div class="saas-hero__rating" aria-label="Rated 4.8 out of 5">
+                    <span class="stars" aria-hidden="true">★★★★★</span>
+                    <strong>4.8</strong>
+                    <span>Reviewer rating</span>
+                </div>
+                <div class="saas-hero__logos">
+                    <span>Used by</span>
+                    <span class="logo-pill">University Teams</span>
+                    <span class="logo-pill">Editorial Ops</span>
+                    <span class="logo-pill">Compliance Units</span>
+                </div>
+            </div>
+        </div>
+
+        <aside class="saas-hero__visual" aria-label="Detection workflow preview">
+            <article class="visual-card visual-card--donut">
+                <p class="card-label">Live Detection</p>
+                <div class="donut-chart" role="img" aria-label="AI 18 percent, Human 82 percent">
+                    <div class="donut-center">
+                        <strong>AI 18%</strong>
+                        <span>Human 82%</span>
+                    </div>
+                </div>
+            </article>
+
+            <article class="visual-card visual-card--preview">
+                <p class="card-label">Highlighted Preview</p>
+                <p class="line line--human">This paragraph reads naturally and consistent with human-authored style.</p>
+                <p class="line line--ai">This segment shows repetitive rhythm and elevated AI signal probability.</p>
+            </article>
+
+            <article class="visual-card visual-card--export">
+                <p class="card-label">Export Ready</p>
+                <p>Generate clean PDF/HTML reports with confidence scores, labels, and timestamps.</p>
+            </article>
+        </aside>
+    </section>
+
+
+    <section class="features section" id="features">
+        <div class="section-head">
+            <p class="eyebrow">Platform Advantages</p>
+            <h2>Everything You Need in One Detector</h2>
+        </div>
+        <div class="feature-grid">
+            <article class="feature-card">
+                <h3>Deep Pattern Analysis</h3>
+                <p>Detects stylometric and linguistic signals using production-grade scoring models trained on diverse content.</p>
+            </article>
+            <article class="feature-card">
+                <h3>Segment-Level Highlights</h3>
+                <p>Pinpoints suspicious passages so reviewers can focus where authenticity risk is highest.</p>
+            </article>
+            <article class="feature-card">
+                <h3>Fast Turnaround</h3>
+                <p>Returns structured results within seconds for long-form text, essays, and operational documents.</p>
+            </article>
+            <article class="feature-card">
+                <h3>Secure by Design</h3>
+                <p>Access-protected workflows and secure transport to keep private documents protected.</p>
+            </article>
+            <article class="feature-card">
+                <h3>Exportable Reports</h3>
+                <p>Download summaries for audits, internal reviews, and formal decision records.</p>
+            </article>
+            <article class="feature-card">
+                <h3>Multi-Language Coverage</h3>
+                <p>Evaluate AI-likelihood across global content streams without changing your process.</p>
+            </article>
+        </div>
+    </section>
+
+    <section class="workflow section" id="how-it-works">
+        <div class="section-head">
+            <p class="eyebrow">How It Works</p>
+            <h2>Three Steps to Reliable Verification</h2>
+        </div>
+        <div class="steps">
+            <article class="step">
+                <span>01</span>
+                <h3>Upload</h3>
+                <p>Paste text or upload your file from PDF, DOCX, or TXT formats.</p>
+            </article>
+            <article class="step">
+                <span>02</span>
+                <h3>Analyze</h3>
+                <p>The engine evaluates syntax, rhythm, repetition, and machine-authorship markers.</p>
+            </article>
+            <article class="step">
+                <span>03</span>
+                <h3>Review</h3>
+                <p>Get confidence scores, segment flags, and a clear interpretation report.</p>
+            </article>
+        </div>
+    </section>
+
+    <section class="testimonials section" id="testimonials">
+        <div class="section-head">
+            <p class="eyebrow">Testimonials</p>
+            <h2>What Teams Say About the Platform</h2>
+        </div>
+        <div class="testimonial-grid">
+            <article class="testimonial-card">
+                <p>"The report quality is excellent. Our academic review process is now far more consistent and much faster."</p>
+                <div class="person">
+                    <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=200&q=80" alt="Portrait of Sarah Walker">
+                    <div>
+                        <h4>Sarah Walker</h4>
+                        <small>University Program Lead</small>
+                    </div>
+                </div>
+            </article>
+            <article class="testimonial-card">
+                <p>"We use it in our editorial QA flow. Segment highlights make manual verification straightforward."</p>
+                <div class="person">
+                    <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=200&q=80" alt="Portrait of Daniel Brooks">
+                    <div>
+                        <h4>Daniel Brooks</h4>
+                        <small>Content Operations Manager</small>
+                    </div>
+                </div>
+            </article>
+            <article class="testimonial-card">
+                <p>"The UI is clean and the confidence scoring is easy for non-technical reviewers to act on immediately."</p>
+                <div class="person">
+                    <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?auto=format&fit=crop&w=200&q=80" alt="Portrait of Nina Patel">
+                    <div>
+                        <h4>Nina Patel</h4>
+                        <small>Compliance Analyst</small>
+                    </div>
+                </div>
+            </article>
+        </div>
+    </section>
+
+    <section class="stats section" id="stats">
+        <div class="stats-grid">
+            <article>
+                <h3>500K+</h3>
+                <p>Documents Checked</p>
+            </article>
+            <article>
+                <h3>99.2%</h3>
+                <p>Detection Quality</p>
+            </article>
+            <article>
+                <h3>50K+</h3>
+                <p>Active Users</p>
+            </article>
+            <article>
+                <h3>30+</h3>
+                <p>Languages Supported</p>
+            </article>
+        </div>
+    </section>
+
+    <section class="cta section" id="start">
+        <h2>Ready to Verify Content Authorship?</h2>
+        <p>Start with your first analysis and get complete visibility into AI-likelihood scoring.</p>
+        <button class="btn btn-primary" onclick="openLogin()">Get Started</button>
+    </section>
+</main>
+
+<div class="modal" id="loginModal" role="dialog" aria-modal="true" aria-labelledby="loginTitle">
+    <div class="modal-box">
+        <button class="close" type="button" onclick="closeLogin()" aria-label="Close">x</button>
+        <h2 id="loginTitle">Login</h2>
+        <input type="email" id="email" placeholder="Email">
+        <input type="password" id="password" placeholder="Password">
+        <button onclick="login()">Login</button>
+    </div>
+</div>
+
+<footer class="site-footer">
+    <div class="footer-container">
+        <div class="footer-brand">
+            <h3>AI Text Detector</h3>
+            <p>Advanced AI-authorship detection for trusted decisions.</p>
+            <a href="https://www.requingroup.com/" target="_blank" rel="noopener noreferrer">Visit requingroup.com</a>
+        </div>
+
+        <div class="footer-links">
+            <h4>Quick Links</h4>
+            <a href="#home">Home</a>
+            <a href="#features">Features</a>
+            <a href="#how-it-works">How It Works</a>
+            <a href="#start">Start</a>
+        </div>
+
+        <div class="footer-links">
+            <h4>Company</h4>
+            <a href="https://www.requingroup.com/#about" target="_blank" rel="noopener noreferrer">About Us</a>
+            <a href="https://www.requingroup.com/contact" target="_blank" rel="noopener noreferrer">Contact</a>
+            <a href="https://www.requingroup.com/termsandconditions" target="_blank" rel="noopener noreferrer">Privacy Policy</a>
+            <a href="https://www.requingroup.com/termsandconditions" target="_blank" rel="noopener noreferrer">Terms</a>
+        </div>
+    </div>
+    <div class="footer-bottom">Copyright 2026 Requin Solutions Pvt Ltd. All rights reserved.</div>
+</footer>
+
+<script src="./config.js"></script>
+<script>
+const APP_CONFIG = window.APP_CONFIG || {};
+const API_BASE = APP_CONFIG.API_BASE || "";
+
+if (APP_CONFIG.IS_API_PLACEHOLDER || !APP_CONFIG.API_BASE) {
+    console.warn("Set your Render backend URL in frontend/config.js before production deploy.");
+}
+
+const header = document.querySelector(".site-header");
+const menuBtn = document.getElementById("menuBtn");
+const navLinks = document.getElementById("navLinks");
+const loginModal = document.getElementById("loginModal");
+
+function closeMenu() {
+    navLinks.classList.remove("open");
+    menuBtn.setAttribute("aria-expanded", "false");
+}
+window.closeMenu = closeMenu;
+
+menuBtn.addEventListener("click", () => {
+    const willOpen = !navLinks.classList.contains("open");
+    navLinks.classList.toggle("open", willOpen);
+    menuBtn.setAttribute("aria-expanded", willOpen ? "true" : "false");
+});
+
+document.querySelectorAll(".nav-links-wrap a").forEach((link) => {
+    link.addEventListener("click", closeMenu);
+});
+
+window.addEventListener("resize", () => {
+    if (window.innerWidth > 900) {
+        closeMenu();
+    }
+});
+
+window.addEventListener("scroll", () => {
+    header.classList.toggle("scrolled", window.scrollY > 18);
+});
+
+window.openLogin = () => {
+    loginModal.classList.add("show");
+};
+
+window.closeLogin = () => {
+    loginModal.classList.remove("show");
+};
+
+loginModal.addEventListener("click", (event) => {
+    if (event.target === loginModal) {
+        window.closeLogin();
+    }
+});
+
+window.login = async () => {
+    const email = document.getElementById("email").value.trim();
+    const password = document.getElementById("password").value;
+
+    if (!email || !password) {
+        alert("Enter email and password");
+        return;
+    }
+    if (!API_BASE) {
+        alert("Backend URL is not configured. Set it in frontend/config.js");
+        return;
+    }
+
+    try {
+        const res = await fetch(`${API_BASE}/auth/login`, {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ email, password }),
+        });
+
+        const data = await res.json();
+        if (!res.ok) {
+            alert(data.detail || "Login failed");
+            return;
+        }
+
+        localStorage.setItem("access_token", data.access_token);
+        localStorage.setItem("user", JSON.stringify(data.user));
+
+        if (data.user.role === "admin") {
+            window.location.href = "admin.html";
+        } else {
+            window.location.href = "prediction.html";
+        }
+    } catch (err) {
+        alert("Server not reachable");
+    }
+};
+</script>
+</body>
+</html>

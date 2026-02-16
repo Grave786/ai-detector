@@ -1,0 +1,183 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Login | AI Text Detector</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="./landing.css">
+<link rel="stylesheet" href="./login.css">
+</head>
+<body>
+<header class="site-header" id="siteHeader">
+    <nav class="navbar" aria-label="Main Navigation">
+        <a href="index.html" class="logo">AI Text Detector</a>
+
+        <button id="menuBtn" class="menu-btn" aria-label="Toggle menu" aria-expanded="false" aria-controls="navLinks">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+
+        <div id="navLinks" class="nav-links-wrap nav-public-links">
+            <a href="index.html">Home</a>
+            <a href="index.html#features">Features</a>
+            <a href="index.html#how-it-works">How It Works</a>
+            <a href="index.html#testimonials">Testimonials</a>
+            <a href="login.html" class="nav-active">Login</a>
+        </div>
+    </nav>
+</header>
+
+<main class="login-main">
+    <section class="login-shell">
+        <article class="login-info">
+            <p class="eyebrow">Secure Access</p>
+            <h1>Welcome back to your AI detection workspace</h1>
+            <p>
+                Sign in to run new scans, review highlighted content, download reports,
+                and track your full detection history.
+            </p>
+            <ul class="benefits">
+                <li>Fast AI vs Human analysis with confidence scores</li>
+                <li>Detailed segment-level highlights and report exports</li>
+                <li>Secure role-based access for users and admins</li>
+            </ul>
+        </article>
+
+        <article class="login-card">
+            <h2>Login</h2>
+            <p>Access your AI Text Detector dashboard</p>
+
+            <label for="email">Email</label>
+            <input id="email" type="email" placeholder="you@example.com" autocomplete="email">
+
+            <label for="password">Password</label>
+            <input id="password" type="password" placeholder="Enter your password" autocomplete="current-password">
+
+            <button id="loginBtn" type="button">Login</button>
+            <div id="error" aria-live="polite"></div>
+        </article>
+    </section>
+</main>
+
+<footer class="site-footer">
+    <div class="footer-container">
+        <div class="footer-brand">
+            <h3>AI Text Detector</h3>
+            <p>Advanced AI-authorship detection for trusted decisions.</p>
+            <a href="https://www.requingroup.com/" target="_blank" rel="noopener noreferrer">Visit requingroup.com</a>
+        </div>
+
+        <div class="footer-links">
+            <h4>Quick Links</h4>
+            <a href="landing.html">Home</a>
+            <a href="landing.html#features">Features</a>
+            <a href="landing.html#how-it-works">How It Works</a>
+            <a href="login.html">Login</a>
+        </div>
+
+        <div class="footer-links">
+            <h4>Company</h4>
+            <a href="https://www.requingroup.com/#about" target="_blank" rel="noopener noreferrer">About Us</a>
+            <a href="https://www.requingroup.com/contact" target="_blank" rel="noopener noreferrer">Contact</a>
+            <a href="https://www.requingroup.com/termsandconditions" target="_blank" rel="noopener noreferrer">Privacy Policy</a>
+            <a href="https://www.requingroup.com/termsandconditions" target="_blank" rel="noopener noreferrer">Terms</a>
+        </div>
+    </div>
+    <div class="footer-bottom">Copyright 2026 Requin Solutions Pvt Ltd. All rights reserved.</div>
+</footer>
+
+<script src="./config.js"></script>
+<script>
+const APP_CONFIG = window.APP_CONFIG || {};
+const API_BASE = APP_CONFIG.API_BASE || "";
+
+if (APP_CONFIG.IS_API_PLACEHOLDER || !APP_CONFIG.API_BASE) {
+  console.warn("Set your Render backend URL in frontend/config.js before production deploy.");
+}
+
+const header = document.getElementById("siteHeader");
+const menuBtn = document.getElementById("menuBtn");
+const navLinks = document.getElementById("navLinks");
+
+function closeMenu() {
+  navLinks.classList.remove("open");
+  menuBtn.setAttribute("aria-expanded", "false");
+}
+window.closeMenu = closeMenu;
+
+menuBtn.addEventListener("click", () => {
+  const willOpen = !navLinks.classList.contains("open");
+  navLinks.classList.toggle("open", willOpen);
+  menuBtn.setAttribute("aria-expanded", willOpen ? "true" : "false");
+});
+
+document.querySelectorAll(".nav-links-wrap a").forEach((link) => {
+  link.addEventListener("click", closeMenu);
+});
+
+window.addEventListener("resize", () => {
+  if (window.innerWidth > 900) {
+    closeMenu();
+  }
+});
+
+window.addEventListener("scroll", () => {
+  header.classList.toggle("scrolled", window.scrollY > 18);
+});
+
+async function performLogin() {
+  const email = document.getElementById("email").value.trim();
+  const password = document.getElementById("password").value;
+  const error = document.getElementById("error");
+
+  error.innerText = "";
+
+  if (!email || !password) {
+    error.innerText = "Enter email and password.";
+    return;
+  }
+
+  if (!API_BASE) {
+    error.innerText = "Backend URL is not configured. Set it in frontend/config.js";
+    return;
+  }
+
+  try {
+    const res = await fetch(`${API_BASE}/auth/login`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ email, password })
+    });
+
+    const data = await res.json();
+    if (!res.ok) {
+      error.innerText = data.detail || "Login failed";
+      return;
+    }
+
+    localStorage.setItem("access_token", data.access_token);
+    localStorage.setItem("user", JSON.stringify(data.user));
+
+    if (data.user.role === "admin") {
+      window.location.href = "admin.html";
+    } else {
+      window.location.href = "prediction.html";
+    }
+  } catch (err) {
+    error.innerText = "Server not reachable";
+  }
+}
+
+document.getElementById("loginBtn").addEventListener("click", performLogin);
+document.getElementById("password").addEventListener("keydown", (event) => {
+  if (event.key === "Enter") {
+    performLogin();
+  }
+});
+</script>
+</body>
+</html>

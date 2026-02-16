@@ -1,0 +1,112 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Turnitin Style AI Detector</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="./landing.css">
+<link rel="stylesheet" href="./prediction.css">
+</head>
+<body>
+<header class="site-header" id="siteHeader">
+    <nav class="navbar" aria-label="Main Navigation">
+        <a href="prediction.html" class="logo">AI Text Detector</a>
+
+        <button id="menuBtn" class="menu-btn" aria-label="Toggle menu" aria-expanded="false" aria-controls="navLinks">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+
+        <div id="navLinks" class="nav-links-wrap nav-auth-links">
+            <a href="prediction.html">AI Detection</a>
+            <a href="scan-history.html">Detailed History</a>
+            <a href="admin.html" id="adminNavLink" style="display: none;">Admin Dashboard</a>
+            <button class="btn btn-login nav-logout" id="logoutBtn">Logout</button>
+        </div>
+    </nav>
+</header>
+
+<main class="page-main">
+    <div class="container">
+        <h1>AI vs Human Text Detector</h1>
+
+        <textarea id="textInput" placeholder="Paste your document text here..."></textarea>
+
+        <div class="upload-row">
+            <input id="fileInput" class="file-input" type="file" accept=".txt,.pdf,.docx,.ppt,.pptx">
+            <div id="selectedFileName" class="selected-file" hidden>No file selected</div>
+        </div>
+
+        <div class="actions-row">
+            <button class="action-btn analyze" id="analyzeBtn">Analyze</button>
+            <button class="action-btn analyze-file" id="analyzeFileBtn">Extract To Input</button>
+            <button class="action-btn clear" id="clearBtn">Clear</button>
+            <button class="action-btn download" id="downloadBtn">Download Report</button>
+        </div>
+
+        <div id="loading" class="loading" aria-live="polite" hidden>
+            <span class="loader-spinner" aria-hidden="true"></span>
+            <span id="loadingMessage">Analyzing...</span>
+        </div>
+        <div id="uxMessage" class="ux-message" aria-live="polite"></div>
+
+        <div class="results" id="results">
+            <h3 class="results-title">Overall Report</h3>
+            <div class="result-summary" id="resultSummary"></div>
+            <div id="donutChart" class="donut-chart" aria-label="Prediction summary donut"></div>
+            <div class="overall-stats" id="overallStats"></div>
+            <div class="result-tools">
+                <button class="action-btn copy-btn" id="copyResultBtn">Copy Result Text</button>
+            </div>
+            <div class="highlight-box" id="highlightedText"></div>
+        </div>
+
+        <div class="history-panel">
+            <div class="history-head">
+                <h3>Recent Scan History</h3>
+                <a href="scan-history.html">View all scans</a>
+            </div>
+            <div class="history-list" id="historyList">Loading history...</div>
+        </div>
+    </div>
+</main>
+
+<footer class="site-footer">
+    <div class="footer-container">
+        <div class="footer-brand">
+            <h3>AI Text Detector</h3>
+            <p>Advanced AI-authorship detection for trusted decisions.</p>
+            <a href="https://www.requingroup.com/" target="_blank" rel="noopener noreferrer">Visit requingroup.com</a>
+        </div>
+
+        <div class="footer-links">
+            <h4>Quick Links</h4>
+            <a href="prediction.html">Predict</a>
+            <a href="scan-history.html">Detailed History</a>
+            <a href="landing.html#features">Features</a>
+            <a href="landing.html#start">Start</a>
+        </div>
+
+        <div class="footer-links">
+            <h4>Company</h4>
+            <a href="https://www.requingroup.com/#about" target="_blank" rel="noopener noreferrer">About Us</a>
+            <a href="https://www.requingroup.com/contact" target="_blank" rel="noopener noreferrer">Contact</a>
+            <a href="https://www.requingroup.com/termsandconditions" target="_blank" rel="noopener noreferrer">Privacy Policy</a>
+            <a href="https://www.requingroup.com/termsandconditions" target="_blank" rel="noopener noreferrer">Terms</a>
+        </div>
+    </div>
+    <div class="footer-bottom">Copyright 2026 Requin Solutions Pvt Ltd. All rights reserved.</div>
+</footer>
+
+<script src="./config.js"></script>
+<script src="./prediction.js"></script>
+</body>
+</html>
+
+
+
