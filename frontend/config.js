@@ -7,7 +7,7 @@
         /^172\.(1[6-9]|2\d|3[0-1])\.\d{1,3}\.\d{1,3}$/.test(host);
 
     // 👇 Changed this line
-    const defaultProdApi = "https://acre-warrior-directions-ids.trycloudflare.com";
+    const defaultProdApi = "https://biography-known-journals-ports.trycloudflare.com";
 
     const configuredProdApi = window.__API_BASE_OVERRIDE__ || defaultProdApi;
 
